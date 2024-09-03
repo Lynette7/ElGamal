@@ -7,8 +7,8 @@ use block_modes::block_padding::Pkcs7;
 
 type Aes128Ecb = Ecb<Aes128, Pkcs7>;
 
-const P: u32 = 23; // A small prime for demonstration. Use a large prime in practice.
-const G: u32 = 5;  // A generator of the multiplicative group modulo P
+const P: u32 = 23;
+const G: u32 = 5;
 
 fn generate_keypair() -> (BigUint, BigUint) {
     let mut rng = thread_rng();
@@ -48,9 +48,6 @@ fn generate_secret_key_spec(secret: &BigUint) -> [u8; 16] {
 }
 
 fn main() {
-    println!("ElGamal Encryption Demonstration");
-    println!("================================");
-
     // Alice generates her keypair
     let (alice_private_key, alice_public_key) = generate_keypair();
     println!("Alice's public key: {}", alice_public_key);
